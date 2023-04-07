@@ -20,43 +20,15 @@
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
-    
+    var everything = document.querySelectorAll(".time-block");
     // nope
-    // for (let i = 0; i < hours.length; i++) {
-    //     var pickedHour = "hour"+hours[i];
-    //     pickedHour.addEventListener("click", function(){
-    //         localStorage.setItem(pickedHour, pickedHour.children[1].value)
-    //     })
-    // }
+    for (let i = 0; i < everything.length; i++) {
 
+        everything[i].children[2].addEventListener("click", function(){
+            localStorage.setItem(everything[i].getAttribute("id"), everything[i].children[1].value)
+        })
+    }
 
-    hour9.addEventListener('click', function() {
-        localStorage.setItem("hour9", hour9.children[1].value)
-    })
-    hour10.addEventListener('click', function() {
-        localStorage.setItem("hour10", hour10.children[1].value)
-    })
-    hour11.addEventListener('click', function() {
-        localStorage.setItem("hour11", hour11.children[1].value)
-    })
-    hour12.addEventListener('click', function() {
-        localStorage.setItem("hour12", hour12.children[1].value)
-    })
-    hour13.addEventListener('click', function() {
-        localStorage.setItem("hour13", hour13.children[1].value)
-    })
-    hour14.addEventListener('click', function() {
-        localStorage.setItem("hour14", hour14.children[1].value)
-    })
-    hour15.addEventListener('click', function() {
-        localStorage.setItem("hour15", hour15.children[1].value)
-    })
-    hour16.addEventListener('click', function() {
-        localStorage.setItem("hour16", hour16.children[1].value)
-    })
-    hour17.addEventListener('click', function() {
-        localStorage.setItem("hour17", hour17.children[1].value)
-    })
 
     // Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
@@ -69,13 +41,13 @@
             console.log("past",hours[i]);
             $("#hour-"+hours[i]).addClass("past");
         } 
-        else if (hours[i] === currentHour){
-            $("#hour-"+hours[i]).addClass("present");
-            console.log("present",hours[i]);
-        }
         else if (hours[i] > currentHour){
             $("#hour-"+hours[i]).addClass("future");
             console.log("future",hours[i]);
+        }
+        else {
+            $("#hour-"+hours[i]).addClass("present");
+            console.log("present",hours[i]);
         }
     }
 
@@ -84,23 +56,23 @@
     // attribute of each time-block be used to do this?
     //
     function getStorage(){
-        var stored17 = localStorage.getItem("hour17")
+        var stored17 = localStorage.getItem("hour-17")
         hour17.children[1].textContent = stored17
-        var stored16 = localStorage.getItem("hour16")
+        var stored16 = localStorage.getItem("hour-16")
         hour16.children[1].textContent = stored16
-        var stored15 = localStorage.getItem("hour15")
+        var stored15 = localStorage.getItem("hour-15")
         hour15.children[1].textContent = stored15
-        var stored14 = localStorage.getItem("hour14")
+        var stored14 = localStorage.getItem("hour-14")
         hour14.children[1].textContent = stored14
-        var stored13 = localStorage.getItem("hour13")
+        var stored13 = localStorage.getItem("hour-13")
         hour13.children[1].textContent = stored13
-        var stored12 = localStorage.getItem("hour12")
+        var stored12 = localStorage.getItem("hour-12")
         hour12.children[1].textContent = stored12
-        var stored11 = localStorage.getItem("hour11")
+        var stored11 = localStorage.getItem("hour-11")
         hour11.children[1].textContent = stored11
-        var stored10 = localStorage.getItem("hour10")
+        var stored10 = localStorage.getItem("hour-10")
         hour10.children[1].textContent = stored10
-        var stored9 = localStorage.getItem("hour9")
+        var stored9 = localStorage.getItem("hour-9")
         hour9.children[1].textContent = stored9
     }
     getStorage();
